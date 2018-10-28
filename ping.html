@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <title>Ping pong game</title>
+</head>
+
+<body>
+    <canvas></canvas>
+
+    <script>
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 500;
+    canvas.height = 200;
+
+    const cw = canvas.width;
+    const ch = canvas.height;
+
+    function table() {
+        ctx.fillStyle = 'black';
+        // x =0 y=0
+        // fillRect(x,y,width,height)
+        ctx.fillRect(0, 0, cw, ch)
+    }
+    table();
+
+    </script>
+
+</body>
+
+</html>
