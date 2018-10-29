@@ -9,26 +9,59 @@
 
 <body>
     <canvas></canvas>
-
     <script>
     const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d');
-    canvas.width = 500;
-    canvas.height = 200;
+    canvas.width = 1000; //1000
+    canvas.height = 500; //500
 
     const cw = canvas.width;
     const ch = canvas.height;
+    const ball = 20;
+    let ballX = cw / 2 - ball / 2;
+    let ballY = ch / 2 - ball / 2;
+    const racketHeight = 100;
+    const racketWidth = 20;
+    const playerX = 70;
+    const computerX = canvas.width - (playerX + racketWidth);
+    let playerY = 200;
+    let computerY = 200;
+    const lineWidth = 6;
+    const lineHeight = 16;
 
+    function playerPosition() {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(playerX, playerY, racketWidth, racketHeight);
+    }
+
+    function computerPosition() {
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(computerX, computerY, racketWidth, racketHeight);
+    }
+
+    function drawBall() {
+        ctx.fillStyle = 'white';
+        ctx.fillRect(ballX, ballY, ball, ball);
+    }
+    /**/
     function table() {
         ctx.fillStyle = 'black';
         // x =0 y=0
         // fillRect(x,y,width,height)
-        ctx.fillRect(0, 0, cw, ch)
+        ctx.fillRect(0, 0, cw, ch);
+
+        for (let linePosition = 20; linePosition < ch; linePosition += 30) {
+            ctx.fillStyle = "grey";
+            ctx.fillRect(cw / 2 - lineWidth / 2, linePosition, lineWidth, lineHeight);
+        }
+
     }
+
     table();
-
+    drawBall();
+    playerPosition();
+    computerPosition();
     </script>
-
 </body>
 
 </html>
